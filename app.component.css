@@ -1,0 +1,55 @@
+.image-gallery {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  
+  .thumbnail-list {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+  }
+  
+  .thumbnail {
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .thumbnail img {
+    width: 100px;
+    height: auto;
+  }
+  
+  .thumbnail.active {
+    border: 2px solid blue;
+  }
+  
+  .image-container {
+    position: relative;
+    overflow: hidden;
+    cursor: grab;
+  }
+  
+  .image-container:active {
+    cursor: grabbing;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    transition: transform 0.3s ease;
+    cursor: grab;
+  }
+  
+  .image-container img:active {
+    cursor: grabbing;
+  }
+  
+  .image-controls {
+    margin-top: 10px;
+  }
+  
+  button {
+    margin-right: 10px;
+  }
+  

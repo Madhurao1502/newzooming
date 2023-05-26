@@ -1,0 +1,35 @@
+<div class="image-gallery">
+  <div class="thumbnail-list">
+    <div
+      *ngFor="let image of images"
+      class="thumbnail"
+      [ngClass]="{ active: image === currentImage }"
+      (click)="selectImage(image)"
+    >
+      <img [src]="image" alt="Thumbnail">
+    </div>
+  </div>
+
+  <div
+    class="image-container"
+    #imageContainer
+    (mousedown)="onDragStart($event)"
+  >
+    <img
+      [src]="currentImage"
+      alt="Selected Image"
+      [style.transform]="'translate(' + imagePositionX + 'px, ' + imagePositionY + 'px) rotate(' + rotationAngle + 'deg)'"
+      [style.transform-origin]="'50% 50%'"
+      [style.width]="zoomLevel + '%'"
+      [style.height]="zoomLevel + '%'"
+      (wheel)="onMouseWheel($event)"
+    >
+  </div>
+
+  <div class="image-controls">
+    <button (click)="zoomIn()">Zoom In</button>
+    <button (click)="zoomOut()">Zoom Out</button>
+    <button (click)="rotateClockwise()">Rotate Clockwise</button>
+    <button (click)="rotateCounterClockwise()">Rotate Counter Clockwise</button>
+  </div>
+</div>
